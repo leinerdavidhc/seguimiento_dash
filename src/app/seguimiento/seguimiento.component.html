@@ -1,0 +1,87 @@
+<div class="card-container">
+  <div class="card-header">
+    <h2>Seguimiento</h2>
+  </div>
+
+  <div class="card">
+    <p-table
+      [value]="datosVehiculos"
+      [paginator]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ width: '100%' }"
+      currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} entradas"
+      [rowsPerPageOptions]="[10, 20, 30]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="width: 10%">Acciónes</th>
+          <th pSortableColumn="id" style="width: 10%">
+            Id <p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="tipo" style="width: 25%">
+            tipo <p-sortIcon field="tipo"></p-sortIcon>
+          </th>
+          <th pSortableColumn="direccion" style="width: 25%">
+            dirección <p-sortIcon field="direccion"></p-sortIcon>
+          </th>
+          <th pSortableColumn="cantidad" style="width: 20%">
+            cantidad <p-sortIcon field="cantidad"></p-sortIcon>
+          </th>
+        </tr>
+        <tr>
+          <th class="text-center">
+            <button
+              class="pi pi-plus btnAction add-plus"
+              (click)="showDialog()"
+            ></button>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-datosVehiculos>
+        <tr>
+          <td class="text-center">
+            <button class="pi pi-pencil btnAction"></button>
+            <button class="pi pi-trash btnAction"></button>
+          </td>
+          <td>{{ datosVehiculos.id }}</td>
+          <td>{{ datosVehiculos.tipo }}</td>
+          <td>{{ datosVehiculos.direccion }}</td>
+          <td>{{ datosVehiculos.cantidad }}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+          Total de Vehiculos: {{ CantidadTotal }}
+        </div>
+      </ng-template>
+      <ng-template pTemplate="paginatorcenter" />
+    </p-table>
+  </div>
+</div>
+<p-dialog
+  header="Seguimiento"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{'width': '90%'}"
+  class="dialog-from"
+  [draggable]="false"
+  [resizable]="false"
+>
+<form class="from-container">
+  <fieldset>
+    <legend>Registro de Seguimiento</legend>
+    <label>Tipos Vehiculos
+      <p-dropdown formControlName="selectedTipo" [options]="Tipos" optionLabel="tipo" placeholder="Tipo Vehiculo"></p-dropdown>
+    </label>
+  
+    <label>Direccion
+      <p-dropdown formControlName="selectedDireccion" [options]="Direccion" optionLabel="direccion" placeholder="Direccion"></p-dropdown>
+    </label>
+  
+    <label>cantidad
+      <input type="number" min="1" max="100" value="1">
+    </label>
+  </fieldset>
+</form>
+</p-dialog>
