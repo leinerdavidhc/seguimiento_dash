@@ -26,9 +26,9 @@ export class AnotacionComponent implements OnInit {
         this.datosAnotacion = response;
         this.datosAnotacion.forEach((anotacion: any) => {
           // Formatear la fecha en cada objeto de anotación
-          anotacion.tiempo_paso = this.formatearFecha(anotacion.tiempo_paso);
+          anotacion.tiempo_inicio = this.formatearFecha(anotacion.tiempo_inicio);
+          anotacion.tiempo_fin = this.formatearFecha(anotacion.tiempo_fin);
         });
-        console.log(this.datosAnotacion);
       },
       (error) => {
         console.error('Error al obtener datos Anotacion:', error);

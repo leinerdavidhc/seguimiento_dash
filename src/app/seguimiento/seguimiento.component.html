@@ -19,14 +19,20 @@
           <th pSortableColumn="id" style="width: 10%">
             Id <p-sortIcon field="id"></p-sortIcon>
           </th>
-          <th pSortableColumn="tipo" style="width: 25%">
+          <th pSortableColumn="tipo" style="width: 10%">
             tipo <p-sortIcon field="tipo"></p-sortIcon>
           </th>
-          <th pSortableColumn="direccion" style="width: 25%">
+          <th pSortableColumn="direccion" style="width: 20%">
             dirección <p-sortIcon field="direccion"></p-sortIcon>
           </th>
-          <th pSortableColumn="cantidad" style="width: 20%">
+          <th pSortableColumn="cantidad" style="width: 10%">
             cantidad <p-sortIcon field="cantidad"></p-sortIcon>
+          </th>
+          <th pSortableColumn="tiempo_inicio" style="width: 20%">
+            tiempo inicio <p-sortIcon field="tiempo_inicio"></p-sortIcon>
+          </th>
+          <th pSortableColumn="tiempo_fin" style="width: 20%">
+            tiempo fin <p-sortIcon field="tiempo_fin"></p-sortIcon>
           </th>
         </tr>
         <tr>
@@ -48,6 +54,8 @@
           <td>{{ datosVehiculos.tipo }}</td>
           <td>{{ datosVehiculos.direccion }}</td>
           <td>{{ datosVehiculos.cantidad }}</td>
+          <td>{{ datosVehiculos.tiempo_inicio }}</td>
+          <td>{{ datosVehiculos.tiempo_fin }}</td>
         </tr>
       </ng-template>
       <ng-template pTemplate="summary">
@@ -63,14 +71,13 @@
   header="Seguimiento"
   [(visible)]="visible"
   [modal]="true"
-  [style]="{'width': '90%'}"
+  [style]="{width: '50vw'}"
+  [maximizable]="true"
   class="dialog-from"
-  [draggable]="false"
-  [resizable]="false"
 >
 <form class="from-container">
   <fieldset>
-    <legend>Registro de Seguimiento</legend>
+    <legend>Registro seguimiento</legend>
     <label>Tipos Vehiculos
       <p-dropdown formControlName="selectedTipo" [options]="Tipos" optionLabel="tipo" placeholder="Tipo Vehiculo"></p-dropdown>
     </label>
@@ -80,8 +87,10 @@
     </label>
   
     <label>cantidad
-      <input type="number" min="1" max="100" value="1">
+      <input type="number" min="1" max="100" value="1" style="width:200px;">
     </label>
+    <p-calendar [style]="{'width':'30%'}" [showTime]="true" [showSeconds]="true"></p-calendar>
+    <p-calendar [style]="{'width':'30%'}" [showTime]="true" [showSeconds]="true"></p-calendar>
   </fieldset>
 </form>
 </p-dialog>

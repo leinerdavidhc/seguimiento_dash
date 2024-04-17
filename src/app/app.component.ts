@@ -39,6 +39,14 @@ export class AppComponent implements OnInit {
             icon: PrimeIcons.FILE,
             routerLink: '/anotacion',
           },
+          {
+            separator: true,
+          },
+          {
+            label: 'Incidentes',
+            icon: PrimeIcons.EXCLAMATION_TRIANGLE,
+            routerLink: '/incidentes',
+          },
         ],
       },
       {

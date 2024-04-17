@@ -66,4 +66,13 @@
   height:40px;
   padding: 10px;
   font-size: 16px;
+  border:1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+}
+
+.from-container fieldset label input[type="number"]:focus,
+.from-container fieldset label input[type="number"]:active,
+.from-container fieldset label input[type="number"]:hover{
+  outline:1px solid #1d67f1;
 }
