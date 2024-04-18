@@ -37,10 +37,9 @@
         </tr>
         <tr>
           <th class="text-center">
-            <button
+            <a href="/add/seguimientos"
               class="pi pi-plus btnAction add-plus"
-              (click)="showDialog()"
-            ></button>
+            ></a>
           </th>
         </tr>
       </ng-template>
@@ -67,30 +66,3 @@
     </p-table>
   </div>
 </div>
-<p-dialog
-  header="Seguimiento"
-  [(visible)]="visible"
-  [modal]="true"
-  [style]="{width: '50vw'}"
-  [maximizable]="true"
-  class="dialog-from"
->
-<form class="from-container">
-  <fieldset>
-    <legend>Registro seguimiento</legend>
-    <label>Tipos Vehiculos
-      <p-dropdown formControlName="selectedTipo" [options]="Tipos" optionLabel="tipo" placeholder="Tipo Vehiculo"></p-dropdown>
-    </label>
-  
-    <label>Direccion
-      <p-dropdown formControlName="selectedDireccion" [options]="Direccion" optionLabel="direccion" placeholder="Direccion"></p-dropdown>
-    </label>
-  
-    <label>cantidad
-      <input type="number" min="1" max="100" value="1" style="width:200px;">
-    </label>
-    <p-calendar [style]="{'width':'30%'}" [showTime]="true" [showSeconds]="true"></p-calendar>
-    <p-calendar [style]="{'width':'30%'}" [showTime]="true" [showSeconds]="true"></p-calendar>
-  </fieldset>
-</form>
-</p-dialog>

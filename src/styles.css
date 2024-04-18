@@ -15,6 +15,8 @@ html,body{
   box-sizing: border-box;
 }
 
+
+
 app-root {
   display: grid;
   grid-template-columns: 300px repeat(4, 1fr);
@@ -69,9 +71,7 @@ footer {
 
 @media (max-width: 991px) {
   app-root {
-    grid-template-areas:
-      "header header header header header"
-      "main main main main main"
-      "footer footer footer footer footer";
+    display: flex;
+    flex-direction: column;
   }
 }

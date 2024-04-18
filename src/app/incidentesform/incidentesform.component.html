@@ -1,0 +1,58 @@
+<div class="container-form">
+    <h2>Incidentes Registro</h2>
+    <form>
+      <label class="labelInput">
+        Titulo: 
+        <input type="text">
+      </label>
+      <label class="labelInput">
+        Cantidad Vehiculo:
+        <input type="number" [value]="1" min="1" max="100" />
+      </label>
+  
+      <div class="labelInput">
+        Tiempo Inicio
+        <div>
+          <label>
+            Fecha:
+            <input type="date" />
+          </label>
+          <label>
+            Tiempo:
+           <div class="timeDate">
+              <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+              >ahora <i class="pi pi-clock"></i
+            ></span>
+           </div>
+          </label>
+        </div>
+      </div>
+      <div class="labelInput">
+        Tiempo Fin
+        <div>
+          <label>
+            Fecha:
+            <input type="date" />
+          </label>
+          <label>
+            Tiempo:
+           <div class="timeDate">
+              <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+              >ahora <i class="pi pi-clock"></i
+            ></span>
+           </div>
+          </label>
+        </div>
+      </div>
+
+      <label class="labelInput">
+        Observacion
+        <textarea cols="30" rows="10"></textarea>
+      </label>
+      <div class="container-action">
+        <button>Guardar</button>
+        <button>Guardar y agregar otro</button>
+      </div>
+    </form>
+  </div>
+  

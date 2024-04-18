@@ -38,7 +38,14 @@
 }
 .btnAction.add-plus{
   background-color:var(--green);
+  display:flex;
+  align-items: center;
+  justify-content: center;
   width:80px;
+  text-decoration: none;
+}
+.btnAction.add-plus:hover{
+  opacity:.8;
 }
 .btnAction:nth-child(2){
   background-color:#f02929;

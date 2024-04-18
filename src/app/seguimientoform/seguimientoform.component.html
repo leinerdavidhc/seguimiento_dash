@@ -1,0 +1,69 @@
+<div class="container-form">
+  <h2>Seguimiento Registro</h2>
+  <form>
+    <label class="labelInput">
+      Tipos:
+      <select>
+        <option>Selecionar tipo vehiculo</option>
+        @for (item of Tipos; track $index) {
+        <option [value]="item.tipo">{{ item.tipo }}</option>
+        }
+      </select>
+    </label>
+    <label class="labelInput">
+      Direciones:
+      <select>
+        <option>Selecionar direccion</option>
+        @for (item of Direccion; track $index) {
+        <option [value]="item.direccion">
+          {{ item.direccion }}
+        </option>
+        }
+      </select>
+    </label>
+
+    <label class="labelInput">
+      Cantidad:
+      <input type="number" [value]="1" min="1" max="100" />
+    </label>
+
+    <div class="labelInput">
+      Tiempo Inicio
+      <div>
+        <label>
+          Fecha:
+          <input type="date" />
+        </label>
+        <label>
+          Tiempo:
+         <div class="timeDate">
+            <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+            >ahora <i class="pi pi-clock"></i
+          ></span>
+         </div>
+        </label>
+      </div>
+    </div>
+    <div class="labelInput">
+      Tiempo Fin
+      <div>
+        <label>
+          Fecha:
+          <input type="date" />
+        </label>
+        <label>
+          Tiempo:
+         <div class="timeDate">
+            <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+            >ahora <i class="pi pi-clock"></i
+          ></span>
+         </div>
+        </label>
+      </div>
+    </div>
+    <div class="container-action">
+      <button>Guardar</button>
+      <button>Guardar y agregar otro</button>
+    </div>
+  </form>
+</div>
