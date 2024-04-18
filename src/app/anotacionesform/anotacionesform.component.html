@@ -1,9 +1,9 @@
 <div class="container-form">
     <h2>Anotaciones Registro</h2>
-    <form>
+    <form [formGroup]="form" (submit)="getDataForm()">
       <label class="labelInput">
         Grupo Tipo:
-        <select>
+        <select formControlName="grupo_tipo">
           <option>Selecionar tipo vehiculo</option>
           @for (item of Tipos; track $index) {
           <option [value]="item.tipo">{{ item.tipo }}</option>
@@ -12,7 +12,7 @@
       </label>
       <label class="labelInput">
         Grupo Cantidad:
-        <input type="number" [value]="1" min="1" max="100" />
+        <input type="number" [value]="1" min="1" max="100" formControlName="grupo_cantidad" />
       </label>
   
       <div class="labelInput">
@@ -20,12 +20,12 @@
         <div>
           <label>
             Fecha:
-            <input type="date" />
+            <input type="date" formControlName="date_inicio" />
           </label>
           <label>
             Tiempo:
            <div class="timeDate">
-              <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+              <input type="text" [value]="dateTime1" formControlName="time_inicio" /><span (click)="addDateTime(1)"
               >ahora <i class="pi pi-clock"></i
             ></span>
            </div>
@@ -38,12 +38,12 @@
         <div>
           <label>
             Fecha:
-            <input type="date" />
+            <input type="date" formControlName="date_fin" />
           </label>
           <label>
             Tiempo:
            <div class="timeDate">
-              <input type="text" [value]="dateTime" /><span (click)="addDateTime()"
+              <input type="text" [value]="dateTime2"  formControlName="time_fin"/><span (click)="addDateTime(2)"
               >ahora <i class="pi pi-clock"></i
             ></span>
            </div>
@@ -53,11 +53,11 @@
 
       <label class="labelInput">
         Observacion
-        <textarea cols="30" rows="10"></textarea>
+        <textarea cols="30" rows="10" formControlName="observacion"></textarea>
       </label>
       <div class="container-action">
-        <button>Guardar</button>
-        <button>Guardar y agregar otro</button>
+        <button type="submit">Guardar</button>
+        <button type="submit">Guardar y agregar otro</button>
       </div>
     </form>
   </div>
